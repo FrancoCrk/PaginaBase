@@ -1,0 +1,58 @@
+/* Contenedor de botones de base - 4 columnas */
+.bases-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr)); /* 4 columnas fijas */
+  gap: 1.5rem;
+  padding: 0rem; /* Padding interno */
+}
+
+/* Botón de base individual - MANTIENE EL MISMO ESTILO */
+.base-button {
+  background: #302525;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.base-button:hover {
+  background: #6a1904;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.base-button-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.base-button-icon {
+  width: 180px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.base-button-info {
+  text-align: center;
+}
+
+.base-button-name {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 1.0rem;
+}
+
+.base-button-date {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}

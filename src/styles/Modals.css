@@ -1,0 +1,549 @@
+/* src/styles/Modals.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: white;
+  padding: 0rem;
+  border-radius: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: modalFadeIn 0.3s ease-out;
+  overflow: hidden; /* Asegura que el borde redondeado se mantenga */
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Estilo para el título con franja roja */
+.modal-header {
+  background-color: #e30202;
+  padding: 3rem 2rem;
+  color: white;
+  margin: 0;
+  font-size: 1.5rem;
+  text-align: center;/
+}
+
+/* Contenido del modal (parte blanca) */
+.modal-content {
+  padding: 2rem;
+}
+
+.modal-container h2 {
+  background-color: #e30202;
+  margin-top: 0;
+  margin-bottom: 0rem;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group input,
+.form-group select {
+  width: 95%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #66d102;
+}
+
+/* Contenedor de botones centrados */
+.modal-actions {
+  display: flex;
+  justify-content: center; /* Cambiado de flex-end a center */
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: flex; /* Añadido para centrar contenido interno */
+  justify-content: center; /* Añadido para centrar texto */
+  align-items: center; /* Añadido para centrar verticalmente */
+  min-width: 180px; /* Ancho mínimo para consistencia */
+  min-height: 55px;
+}
+
+.btn.cancel {
+  background-color: #bdbdbd;
+  color: hsl(0, 0%, 100%);
+}
+
+.btn.cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.btn.save {
+  background-color: #e30202;
+  color: white;
+}
+
+.btn.save:hover {
+  background-color: #de4001;
+}
+
+/* Estilos para información no editable */
+.non-editable-info {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.dni-display {
+  padding: 0.8rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+  font-Weight: bold;
+}
+
+.edit-notice {
+  display: block;
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  font-style: italic;
+}
+
+/* Estilo para botón de eliminar */
+.btn.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Estilos para el contenido del modal de confirmación */
+.modal-content p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.modal-content strong {
+  color: #e30202;
+}
+
+/* ------------------------------------------------------------------------*/
+
+/* Estilos para grupos de checkbox */
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+/* Estilos para file input */
+.file-notice {
+  display: block;
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+input[type="file"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+input[type="file"]:disabled {
+  background-color: #eee;
+  cursor: not-allowed;
+}
+
+/*-----------------------------------------------------------*/
+
+/* Estilos para el modal de Revisión de Base */
+.review-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.review-modal-container {
+  background-color: white;
+  padding: 0;
+  border-radius: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: modalFadeIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+.review-modal-container2 {
+  background-color: white;
+  padding: 0rem;
+  border-radius: 40px;
+  width: 100%;
+  max-width: 500px;
+  /* CAMBIO: Borde grueso y sombra */
+  border: 5px solid black; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Aumentamos la opacidad de la sombra para que se note */
+  animation: modalFadeIn 0.3s ease-out;
+  overflow: hidden; 
+}
+
+.review-modal-header {
+  background-color: #000;
+  padding: 3rem 2rem;
+  color: white;
+  margin: 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.review-modal-content {
+  padding: 2rem;
+}
+
+.review-form-group {
+  margin-bottom: 1.2rem;
+}
+
+.review-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.review-form-group input {
+  width: 95%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.review-form-group input:focus {
+  outline: none;
+  border-color: #66d102;
+}
+
+.review-modal-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.review-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 180px;
+  min-height: 55px;
+}
+
+.review-btn.cancel {
+  background-color: #bdbdbd;
+  color: hsl(0, 0%, 100%);
+}
+
+.review-btn.cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.review-btn.inspect {
+  background-color: #000;
+  color: white;
+}
+
+.review-btn.inspect:hover {
+  background-color: #333;
+}
+
+/*---------------------------------------------------------------------*/
+
+/* Spinner de carga */
+.lds-roller,
+.lds-roller div,
+.lds-roller div:after {
+  box-sizing: border-box;
+}
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 180px; /* Tamaño del contenedor */
+  height: 180px; /* Tamaño del contenedor */
+}
+
+.lds-roller div {
+  animation: lds-roller 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 90px 90px; /* Se ajusta al nuevo tamaño del contenedor */
+}
+
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 14.2px; /* Se ajusta el tamaño del punto */
+  height: 14.2px; /* Se ajusta el tamaño del punto */
+  border-radius: 50%;
+  background: currentColor;
+  margin: -8.1px 0 0 -8.1px; /* Se ajusta el margen para centrar el punto */
+}
+
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+  top: 140.91px;
+  left: 140.91px;
+}
+
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+  top: 152.35px;
+  left: 126px;
+}
+
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+  top: 159.55px;
+  left: 108.63px;
+}
+
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+  top: 162px;
+  left: 90px;
+}
+
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+  top: 159.55px;
+  left: 71.37px;
+}
+
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+  top: 152.35px;
+  left: 54px;
+}
+
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+  top: 140.91px;
+  left: 39.09px;
+}
+
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+  top: 126px;
+  left: 27.65px;
+}
+
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Nuevos estilos para el modal de estado de revisión */
+.revising-content-modal,
+.review-result-content-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px; /* Ajusta la altura del contenido dentro del modal */
+  padding: 20px;
+  text-align: center;
+}
+
+.revising-content-modal2 {
+  position: absolute;
+  right: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px; /* Ajusta la altura del contenido dentro del modal */
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilos para los iconos de éxito y advertencia en el modal */
+.result-icon {
+  width: 200px; /* Ajusta el tamaño de la imagen */
+  padding: 20px;
+  height: auto;
+  /* Animación de entrada */
+  animation: fadeInScale 2.2s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.6); /* Empieza más pequeño */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1); /* Llega a su tamaño normal */
+  }
+}
+
+
+/* Estilos para el botón de cierre del modal */
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 5.5rem;
+  font-weight: 300;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10; /* Asegura que el botón esté por encima del contenido */
+  line-height: 1;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Animación para el texto de "Revisando..." */
+.revising-content-modal p::after {
+  content: ''; /* Inicialmente vacío */
+  animation: loading-dots 1.5s infinite;
+}
+
+@keyframes loading-dots {
+  0% {
+    content: '.';
+  }
+  33% {
+    content: '..';
+  }
+  66% {
+    content: '...';
+  }
+}
+
+/* Estilo para el botón de la tabla de revisión */
+.review-table-btn {
+  background-color: rgb(45, 0, 0);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 200px; /* Ancho mínimo para consistencia */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-table-btn:hover {
+  background-color: #820000; /* Color más oscuro al pasar el cursor */
+}

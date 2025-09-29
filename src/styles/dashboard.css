@@ -1,0 +1,1424 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f6f8;
+}
+
+.btn-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+}
+
+.sidebar button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  height: 95vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #302525;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Mantiene separación entre el grupo y el logout */
+  align-items: center;
+  padding: 20px 0;
+  color: white;
+  flex-shrink: 0; /* Evita compresión */
+ 
+}
+
+/* Botón de la barra lateral */
+.sidebar button {
+  background-color: #342727;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 280px;
+  text-align: center;
+  font-size: 15px;
+  transition: background 0.3s;
+  flex-shrink: 0; /* No se reduce */
+  box-sizing: border-box; /* Padding incluido en el ancho */
+}
+
+/* Contenedor de los 4 botones principales */
+.sidebar-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* espacio entre botones */
+  margin-top: 280px;
+  position: absolute;/* Referencia para hijos */
+}
+
+
+.sidebar button:hover {
+  background-color: #500505;
+}
+
+/* ESTILOS NECESARIOS Y LIMPIOS */
+.logout-section {
+  position: fixed; /* Solo esto (elimina el absolute) */
+  bottom: 10px; 
+  left: 10px;
+  width: 280px;
+  z-index: 20;
+}
+
+.logout-btn {
+  width: 100%;
+  margin: 0;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626 ; 
+}
+
+/* Ajuste para el contenido principal */
+.dashboard-content {
+  margin-left: 300px;
+  margin-top: 80px; /* Para que el contenido no quede detrás del header */
+  padding: 2rem;
+  min-height: calc(100vh - 150px); /* Ajuste de altura */
+}
+
+
+/* Logo en la sidebar */
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  margin-top: 30px;
+}
+
+.sidebar-logo img {
+  width: 280px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Contenedor de la pestaña Inicio */
+.home-tab {
+  overflow: visible; /* Esto permite que el divider se extienda */
+}
+
+/* Estructura de botones con iconos */
+.home-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra contenido horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  gap: 0.8rem; /* Espacio entre icono y texto */
+  background: #302525;
+  color: white;
+  border: none;
+  padding: 2rem 2rem; /* Ajusta según necesidad */
+  width: 255px; /* Ancho automático (o usa un valor fijo) */
+  height: 240px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: background 0.3s;
+}
+
+/* Estilo para los íconos */
+.btn-icon2 {
+  width: 100px; /* Ajusta el tamaño */
+  height: 110px;
+  object-fit: contain; /* Evita deformaciones */
+}
+
+.btn-icon3 {
+  width: 140px; /* Ajusta el tamaño */
+  height: 140px;
+  object-fit: contain; /* Evita deformaciones */
+}
+
+.btn-icon4 {
+  width: 140px; /* Ajusta el tamaño */
+  height: 140px;
+  object-fit: contain; /* Evita deformaciones */
+}
+
+/* Mantén los estilos existentes para .home-buttons */
+.home-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.home-btn:hover {
+  background: #6a1904;
+}
+
+.divider {
+  border: none;
+  height: 2px;
+  background: #302525;
+  opacity: 0.5;
+  margin: 1.5rem -2rem; /* Márgenes negativos para compensar el padding */
+  width: calc(100% + 100rem); /* Extiende más allá del contenedor */
+}
+
+/* Encabezado rojo - Versión exacta que solicitas */
+.red-header {
+  position: fixed; /* Fijo en la pantalla */
+  top: 0; /* Pegado al borde superior */
+  left: 300px; /* Justo al lado del sidebar */
+  right: 0; /* Hasta el borde derecho */
+  height: 120px; /* Altura que especificas */
+  background: #d42d2d;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem; /* Espaciado del texto */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10; /* Para que quede sobre otros elementos */
+}
+
+.red-header h1 {
+  color: white;
+  font-size: 2rem; /* Tamaño aumentado para la nueva altura */
+  margin: 0;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Tablas - Versión mejorada */
+.table-responsive {
+  overflow-x: auto;
+  margin: 1rem 0;
+  width: calc(80% + 15rem);
+  height: calc(85vh - 186.5px); /* Altura fija para extensión completa */
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #302525;
+  border-radius: 8px;
+  background: white; /* Fondo para el área no ocupada por filas */
+  table-layout: fixed; /* Asegura que los anchos se respeten */
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  flex-grow: 1; /* Ocupa todo el espacio disponible */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera fija */
+.users-table thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Cuerpo con scroll */
+.users-table tbody {
+  flex-grow: 1;
+  display: block;
+  overflow-y: auto;
+}
+
+/* Filas de la tabla */
+.users-table tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Estilos de celdas mejorados */
+.users-table th {
+  background: #302525;
+  color: white;
+  padding: 14px 12px;
+  text-align: center;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.users-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  background: white;
+}
+
+/* Efecto hover premium */
+.users-table tr:hover td {
+  background-color: rgba(255, 207, 190, 0.208);
+  transition: background 0.2s ease;
+}
+
+
+.users-table th:nth-child(1),
+.users-table td:nth-child(1) {
+  width: 7%; /* Ancho reducido para la columna ID */
+}
+
+.users-table th:nth-child(2),
+.users-table td:nth-child(2) {
+  width: 15%; /* DNI */
+}
+
+.users-table th:nth-child(3),
+.users-table td:nth-child(3) {
+  width: 28%; /* Nombre */
+}
+
+.users-table th:nth-child(4),
+.users-table td:nth-child(4) {
+  width: 20%; /* Cargo */
+}
+
+.users-table th:nth-child(5),
+.users-table td:nth-child(5) {
+  width: 22%; /* Contraseña */
+}
+
+.users-table th:nth-child(6),
+.users-table td:nth-child(6) {
+  width: 18%; /* Acciones */
+}
+
+
+/* Contenedor principal de acciones - Solo imágenes */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Estilo base para todos los botones de acción (solo imagen) */
+.action-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  line-height: 0; /* Elimina espacio extra */
+  display: inline-flex; /* Para mejor alineación */
+}
+
+/* Elimina cualquier contorno o efecto en foco */
+.action-btn:focus {
+  outline: none;
+}
+
+/* Estilo para todas las imágenes de acción */
+.action-icon {
+  width: 24px; /* Mismo tamaño para todos */
+  height: 24px;
+  object-fit: contain;
+  display: block; /* Elimina espacio inferior */
+  border: none;
+  outline: none;
+}
+
+/* Toggle icon (puede ser diferente tamaño) */
+.toggle-icon {
+  width: 40px; /* Un poco más grande para mejor visibilidad */
+  height: 40px;
+}
+
+/* Elimina cualquier efecto hover no deseado */
+.action-btn:hover {
+  transform: none;
+  opacity: 1;
+}
+
+/* Contenedor del toggle (ahora solo imagen) */
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para las imágenes del toggle */
+.toggle-image {
+  width: 50px; /* Ajusta según el tamaño de tus imágenes */
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.toggle-image:hover {
+  transform: scale(1.05);
+}
+
+/* Botones transparentes */
+.action-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.action-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Switch minimalista */
+.switch-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50x;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e0e0e0;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Imágenes puras sin estilos adicionales */
+.switch-image {
+  width: 24px;
+  height: 24px;
+  display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* Botones transparentes */
+.table-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0; /* Elimina espacio extra */
+}
+
+/* Elimina todos los efectos hover */
+.table-btn:hover {
+  transform: none;
+  box-shadow: none;
+  opacity: 1;
+}
+
+/* Borde inferior extendido */
+.table-footer-space {
+  height: calc(100% - 60px); /* Ajusta según necesidad */
+  min-height: 50px; /* Espacio mínimo */
+  background: white;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+/* Botón Agregar - Versión Minimalista */
+.add-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  line-height: 0;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+  margin-left: auto; /* Empuja a la derecha */
+  margin-right: 0; /* Aseguramos alineación derecha */
+}
+
+.add-btn:hover {
+  transform: scale(1.1);
+  background: none;
+}
+
+.add-icon {
+  width: 40px; /* Tamaño aumentado */
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  border: none;
+  outline: none;
+}
+
+/* Botón Agregar 2 - Versión Minimalista */
+
+.add-btn2 {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  line-height: 0;
+  display: inline-flex;
+  align-items: center; /* Cambiado de "right" a "center" */
+  transition: transform 0.2s ease;
+  margin-left: auto; /* Esto lo empuja a la derecha */
+  position: absolute; /* Cambiado de absolute a relative */
+  z-index: 0; /* Asegurar que esté sobre otros elementos */
+  right: 20px; /* Coloca el botón a 20px del borde derecho del contenedor */
+  top: 140px; /* Lo alinea verticalmente en el centro */
+}
+
+.add-btn2:hover {
+  transform: scale(1.1);
+  background: none;
+}
+
+.add-icon2 {
+  width: right; /* Tamaño aumentado */
+  height: 55px;
+  object-fit: contain;
+  display: block;
+  border: none;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.header-with-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -1.35rem;
+  width: 112%;
+  width: 1170px;
+  padding-right: 0; /* Eliminar padding derecho si existe */
+}
+
+/* Corrección de margen para la tabla de Base Asesor */
+.admin-tab .header-with-actions {
+  margin-bottom: 1rem;
+}
+
+.header-with-actions .tab-subtitle {
+  margin: 0.5;
+  flex-grow: 1;
+}
+
+
+/* Contenedor de botones superiores */
+.table-header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0; /* Eliminamos el padding interno */
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+.back-btn {
+  background: #342727;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  height: 36.5px;
+  min-width: 100px; /* Cambiado de width a min-width */
+  display: flex; /* Añade esto */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  gap: 8px; /* Espacio entre icono y texto */
+  border-radius: 5px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: auto;
+  font-size: 1rem;
+  padding: 0 15px; /* Añade padding horizontal */
+}
+
+.back-icon{
+  width: 25px; /* Ajusta el tamaño */
+  height: 25px;
+  object-fit: contain; /* Evita deformaciones */
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+/* --------------------------------------------------------------------------------------- */
+
+.back-btn2 {
+  background: #342727;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  height: 36.5px;
+  min-width: 100px; /* Cambiado de width a min-width */
+  display: flex; /* Añade esto */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  gap: 8px; /* Espacio entre icono y texto */
+  border-radius: 5px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: auto;
+  font-size: 1rem;
+  padding: 0 15px; /* Añade padding horizontal */
+  transition: all 0.2s ease;
+  z-index: 100; /* <-- Asegura que el botón esté sobre otros elementos */
+  
+}
+
+.back-icon2 {
+  width: 25px; /* Ajusta el tamaño */
+  height: 25px;
+  object-fit: contain; /* Evita deformaciones */
+}
+
+.back-btn2:hover {
+  text-decoration: #6d2626;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+/* Estilo para el encabezado con botón de volver */
+.header-with-back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.header-with-back .tab-subtitle {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Ajuste para el botón de volver */
+.header-with-back .back-btn {
+  margin-bottom: 0;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+/*----------------------------------------------------------------------------------*/
+
+/* Celda de contraseña */
+.password-cell {
+  position: relative;
+  text-align: center; /* Centra el contenido base */
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el contenido principal */
+  position: relative; /* Para posicionar el botón */
+  padding-right: 30px; /* Espacio para el botón */
+}
+
+.password-text {
+  flex-grow: 1;
+  text-align: center; /* Centra solo el texto */
+}
+
+.password-toggle {
+  position: absolute;
+  right: 5px; /* Posición fija a la derecha */
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.password-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.password-toggle:hover .password-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/*----------------------------------------------------------------------------------*/
+
+/* Contenedor wrapper con scroll */
+
+.bases-container-wrapper {
+  position: absolute;
+  width: 77%;
+  max-height: 65vh; /* Altura máxima antes del scroll */
+  overflow-y: auto; /* Scroll vertical */
+  overflow-x: hidden; /* Evitar scroll horizontal */
+  padding: 0rem; /* Más padding alrededor */
+  box-sizing: border-box; /* Incluir padding en el ancho total */
+  top:280px;
+}
+
+.bases-container-wrapper2 {
+  position: absolute;
+  width: 77%;
+  max-height: 70vh; /* Altura máxima antes del scroll */
+  overflow-y: auto; /* Scroll vertical */
+  overflow-x: hidden; /* Evitar scroll horizontal */
+  padding: 0rem; /* Más padding alrededor */
+  box-sizing: border-box; /* Incluir padding en el ancho total */
+  top:240px;
+}
+
+/* Estilos del scroll personalizado */
+.bases-container-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bases-container-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.bases-container-wrapper::-webkit-scrollbar-thumb {
+  background: #949494;
+  border-radius: 4px;
+}
+
+.bases-container-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #6a1904;
+}
+
+
+/* Estilos del scroll personalizado */
+.bases-container-wrapper2::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bases-container-wrapper2::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.bases-container-wrapper2::-webkit-scrollbar-thumb {
+  background: #949494;
+  border-radius: 4px;
+}
+
+.bases-container-wrapper2::-webkit-scrollbar-thumb:hover {
+  background: #6a1904;
+
+}
+/* Mensaje cuando no hay bases - ajustado para scroll */
+.no-bases-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  text-align: center;
+  opacity: 0.5;
+  width: 100%;
+}
+
+.no-bases-message::before {
+  content: "📁";
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+
+.no-bases-message p {
+  font-size: 1.8rem;
+  color: #302525;
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.no-bases-message p:first-child {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/*----------------------------------------------------------------------------------*/
+
+/* Mensaje cuando no hay bases - ajustado para scroll */
+.no-bases-message2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  text-align: center;
+  opacity: 0.5;
+  width: 1170px;
+}
+
+.no-bases-message2::before {
+  content: "📁";
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+
+.no-bases-message2 p {
+  font-size: 1.8rem;
+  color: #302525;
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.no-bases-message2 p:first-child {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/*----------------------------------------------------------------------------------*/
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+}
+
+.header-title {
+  flex-grow: 1;
+}
+
+.header-title h1 {
+  color: white;
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Identificador de usuario */
+.user-identifier {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 15px;
+  border-radius: 25px;
+  backdrop-filter: blur(5px);
+}
+
+.user-icon-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgb(225, 15, 15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.user-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.user-role {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.user-name {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+/* Ajustar el contenido principal para el header fijo */
+.dashboard-content {
+  margin-left: 300px;
+  margin-top: 100px; /* Aumentado para coincidir con la altura del header */
+  padding: 2rem;
+  min-height: calc(100vh - 150px);
+}
+
+/*---------------------------------------------------------------------------*/
+/* Estilos para la tabla de base de datos */
+.base-data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.base-data-table th {
+  background: #302525;
+  color: white;
+  padding: 14px 12px;
+  text-align: center;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.base-data-table td {
+  padding: 11.5px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  /*background: white;*/
+}
+
+.base-data-table tr:hover td {
+  background-color: rgba(255, 199, 190, 0.592);
+  transition: background 0.2s ease;
+}
+
+/* Ajustar anchos de columnas para la tabla de base */
+.base-data-table th:nth-child(1),
+.base-data-table td:nth-child(1) { /* ID */
+  width: 5%;
+}
+
+.base-data-table th:nth-child(2),
+.base-data-table td:nth-child(2) { /* DNI */
+  width: 10%;
+}
+
+.base-data-table th:nth-child(3),
+.base-data-table td:nth-child(3) { /* NOMBRE COMPLETO */
+  width: 20%;
+}
+
+.base-data-table th:nth-child(4),
+.base-data-table td:nth-child(4) { /* NUMERO 1 */
+  width: 12%;
+}
+
+.base-data-table th:nth-child(5),
+.base-data-table td:nth-child(5) { /* NUMERO 2 */
+  width: 12%;
+}
+
+.base-data-table th:nth-child(6),
+.base-data-table td:nth-child(6) { /* TIPIFICACION */
+  width: 15%;
+}
+
+.base-data-table th:nth-child(7),
+.base-data-table td:nth-child(7) { /* ACCIONES */
+  width: 12%;
+}
+
+/* Contenedor responsivo para la tabla */
+.table-responsive {
+  width: 1170px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Para un scroll suave en móviles */
+}
+
+/* Estilos para el campo de selección de Tipificación */
+.tipificacion-select {
+    padding: 10px 10px; /* Ajusta el relleno arriba, abajo y a los lados */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 13.5px;
+    text-align: center;
+    cursor: pointer;
+    width: 90%;
+}
+
+/* Estilo para la celda de la tabla para que no tenga relleno por defecto */
+.base-data-table td:nth-child(6) {
+    padding: 0;
+}
+
+.tipificacion-select:focus {
+    outline: none;
+    border-color: #f84f4f;
+    box-shadow: 0 0 5px rgba(40, 0, 0, 0.653);
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+.deletebase-icon {
+  width: 30px; /* Tamaño aumentado */
+  height: 30px;
+  object-fit: contain;
+  display: block;
+  border: none;
+  outline: none;
+}
+
+.export-icon {
+  width: 25px; /* Tamaño aumentado */
+  height: 25px;
+  object-fit: contain;
+  display: block;
+  border: none;
+  outline: none;
+}
+
+/* Estilos para el botón de Exportar (excel) */
+.export-btn {
+  background-color: #21a366; /* Un tono de verde distintivo para Excel */
+  color: white;
+  border-radius: 5px;
+  border: none;
+  display: flex; /* Añade esto */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  gap: 8px;
+  font-size: 1rem;
+  padding: 10px 15px; /* Añade padding horizontal */
+  transition: background-color 0.3s ease;
+  position: absolute;
+  z-index: 100;
+  right: 80px; /* Coloca el botón a 20px del borde derecho del contenedor */
+}
+
+.export-btn:hover {
+  background-color: #1a8a53;
+}
+
+/* Estilos para el botón de Eliminar Base */
+.delete-base-btn {
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  position:absolute;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+  right: 280px; /* Coloca el botón a 20px del borde derecho del contenedor */
+}
+
+.delete-base-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/*--------------------------------------------------------------------------------*/
+
+.no-data-message {
+  text-align: center;
+  color: #777;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+
+/*---------------------------------------------------------------------------*/
+/* Estilos para la tabla de asesores */
+.advisor-users-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  flex-grow: 1; /* Ocupa todo el espacio disponible */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera fija */
+.advisor-users-table thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Cuerpo con scroll */
+.advisor-users-table tbody {
+  flex-grow: 1;
+  display: block;
+  overflow-y: auto;
+}
+
+/* Filas de la tabla */
+.advisor-users-table tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Estilos de celdas mejorados */
+.advisor-users-table th {
+  background: #302525;
+  color: white;
+  padding: 14px 12px;
+  text-align: center;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.advisor-users-table td {
+  padding: 20px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  background: white;
+}
+
+/* Efecto hover premium */
+.advisor-users-table tr:hover td {
+  background-color: rgba(255, 207, 190, 0.208);
+  transition: background 0.2s ease;
+}
+
+/* Ajustar anchos de columnas para la tabla de asesores */
+.advisor-users-table th:nth-child(1),
+.advisor-users-table td:nth-child(1) { /* ID */
+  width: 7%;
+}
+
+.advisor-users-table th:nth-child(2),
+.advisor-users-table td:nth-child(2) { /* DNI */
+  width: 15%;
+}
+
+.advisor-users-table th:nth-child(3),
+.advisor-users-table td:nth-child(3) { /* Nombre Completo */
+  width: 30%;
+}
+
+.advisor-users-table th:nth-child(4),
+.advisor-users-table td:nth-child(4) { /* Turno */
+  width: 15%;
+}
+
+.advisor-users-table th:nth-child(5),
+.advisor-users-table td:nth-child(5) { /* Base */
+  width: 15%;
+}
+
+.advisor-users-table th:nth-child(6),
+.advisor-users-table td:nth-child(6) { /* Acciones */
+  width: 20%;
+}
+
+/* Nuevo estilo para deshabilitar selección de texto */
+.disable-select-text {
+  -webkit-user-select: none; /* Chrome, Safari, Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Estándar */
+}
+
+/* En tu archivo de estilos, ej. src/styles/dashboard.css
+.blackout-screen {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+ */
+
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Oscurece el fondo */
+  z-index: 9999; /* Asegura que esté encima de todo */
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none; /* Permite clics a través de la capa */
+}
+
+/*----------------------------------------------------------------------------------*/
+
+/* Estilos para el nuevo contenedor de Revisión de Base */
+.revision-main-container {
+  background-color: #e1e1e18e;
+  border-radius: 8px;
+  border: #000000;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+  margin-top: 20px;
+  width: 100%;
+  height: 510px;
+  box-sizing: border-box;
+}
+
+/* Styles for RevisionBaseTab.jsx */
+.revision-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 435px; /* Ajusta la altura según la necesites */
+  gap: 20px;
+}
+
+.revision-icon {
+  width: 200px;
+  opacity: 0.15; /* Para que se vea como un placeholder */
+}
+
+.upload-btn {
+  background-color: #000000;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-icon {
+  width: 20px;
+}
+/*-----------------------------------------------------*/
+/* Estilos del contenedor de la tabla */
+.table-responsive-conteiner {
+  overflow-x: auto;
+  margin: -3.5rem -1.2rem;
+  width: calc(100% + 2.5rem);
+  height: 510px; /* Altura fija para extensión completa */
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #302525;
+  border-radius: 8px;
+  background: white; /* Fondo para el área no ocupada por filas */
+  table-layout: fixed; /* Asegura que los anchos se respeten */
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+.deletebase-icon2 {
+  width: 35px; /* Tamaño aumentado */
+  height: 35px;
+  object-fit: contain;
+  display: block;
+  border: none;
+  outline: none;
+}
+
+/* Estilos para el botón de Exportar (excel) */
+.export-btn2 {
+  background-color: #21a366; /* Un tono de verde distintivo para Excel */
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: none;
+  display: flex; /* Añade esto */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  gap: 8px;
+  font-size: 1rem;
+  padding: 10px 15px; /* Añade padding horizontal */
+  transition: background-color 0.3s ease;
+  position: absolute; 
+  top: 29%;
+  z-index: 100;
+  right: 30px; /* Coloca el botón a 20px del borde derecho del contenedor */
+}
+
+.export-btn2:hover {
+  background-color: #1a8a53;
+}
+
+/* Estilos para el botón de Eliminar Base */
+.delete-base-btn2 {
+  border-radius: 5px;
+  border: none;
+  background-color: #ffffff00;
+  cursor: pointer;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  position:absolute;
+  gap: 8px;
+  top: 29.5%;
+  z-index: 100;
+  transition: background-color 0.3s ease;
+  right: 240px; /* Coloca el botón a 20px del borde derecho del contenedor */
+}
+
+.delete-base-btn2:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/*---------------------------------------------------------------*/
+
+/* En styles/dashboard.css */
+
+/* Estilos de filas condicionales */
+.row-blocked {
+  background-color: #3b3b3b; /* Color plomo oscuro */
+}
+
+.row-suspicious {
+  background-color: #e3024d; /* Color rojo claro */
+}
+
+.row-mixed {
+  background-color: orange;
+}
+
+/* Estilos de texto para números */
+.number-blocked {
+  color: red;
+  font-weight: bold;
+}
+
+.number-suspicious {
+  color: blue;
+  font-weight: bold;
+}
+
+/* En styles/dashboard.css */
+/* Estilos para la tabla de base de datos */
+.base-data-table2 {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.base-data-table2 th {
+  background: #302525;
+  color: white;
+  padding: 14px 12px;
+  text-align: center;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.base-data-table2 td {
+  padding: 11.5px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+/* Ajustar anchos de columnas para la tabla de base */
+.base-data-table2 th:nth-child(1),
+.base-data-table2 td:nth-child(1) { /* ID */
+  width: 5%;
+}
+
+.base-data-table2 th:nth-child(2),
+.base-data-table2 td:nth-child(2) { /* DNI */
+  width: 10%;
+}
+
+.base-data-table2 th:nth-child(3),
+.base-data-table2 td:nth-child(3) { /* NOMBRE COMPLETO */
+  width: 20%;
+}
+
+.base-data-table2 th:nth-child(4),
+.base-data-table2 td:nth-child(4) { /* NUMERO 1 */
+  width: 12%;
+}
+
+.base-data-table2 th:nth-child(5),
+.base-data-table2 td:nth-child(5) { /* NUMERO 2 */
+  width: 12%;
+}
+
+.base-data-table2 th:nth-child(6),
+.base-data-table2 td:nth-child(6) { /* TIPIFICACION */
+  width: 15%;
+}
+
+.base-data-table2 th:nth-child(7),
+.base-data-table2 td:nth-child(7) { /* ACCIONES */
+  width: 12%;
+}
+
+
+/* Estilo para la celda de la tabla para que no tenga relleno por defecto */
+.base-data-table2 td:nth-child(6) {
+    padding: 0;
+}
+
+/*---------------------------------------------------------------------*/
+
+/* Colores para las filas basadas en la tipificación */
+.row-venta {
+  background-color: #4CAF50 !important; /* Verde Fuerte */
+}
+
+.row-atendida {
+  background-color: #8BC34A !important; /* Verde Claro */
+}
+
+.row-no-contesta {
+  background-color: #9C27B0 !important; /* Morado */
+  color: #fff !important;
+}
+
+.row-agendado {
+  background-color: #FFEB3B !important; /* Amarillo */
+}
+
+.row-viaje-mudanza {
+  background-color: #FF9800 !important; /* Naranja */
+}
+
+.row-rojo {
+  background-color: #F44336 !important; /* Rojo */
+  color: #fff !important;
+}
+
