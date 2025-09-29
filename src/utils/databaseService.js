@@ -427,7 +427,7 @@ export const updateTipificacion = async (recordId, tipificacion) => {
       .update({ tipificacion })
       .eq('id', recordId)
       .select()
-      .single();
+      .maybeSingle();
 
     if (error) throw error;
     return { success: true, data };
