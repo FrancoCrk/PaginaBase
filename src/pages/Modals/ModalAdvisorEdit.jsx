@@ -80,6 +80,8 @@ const ModalAdvisorEdit = ({ isOpen, onClose, onSave, advisorData }) => {
               >
                 <option value="MAÑANA">MAÑANA</option>
                 <option value="TARDE">TARDE</option>
+                <option value="MOVIL">MOVIL</option>
+                
               </select>
             </div>
             
