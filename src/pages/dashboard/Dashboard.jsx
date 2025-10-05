@@ -319,6 +319,7 @@ const Dashboard = () => {
           baseName={selectedBase.nombre}
           onDataUpdate={handleDataUpdate} 
           userRole={userRole}
+          userCargo={userData?.cargo}
         />
       );
     }
@@ -549,6 +550,7 @@ const Dashboard = () => {
                     baseName={selectedBase.nombre}
                     onDataUpdate={handleDataUpdate} 
                     userRole={userRole}
+                    userCargo={userData?.cargo}
                   />
                 ) : (
                   <BaseTab
