@@ -31,7 +31,7 @@ const TIPIFICACIONES = [
   "FACILIDADES TECNICAS"
 ];
 
-const BaseDataTab = ({ baseData, onBack, onDeleteBase, baseId, baseName, onDataUpdate, userRole }) => {
+const BaseDataTab = ({ baseData, onBack, onDeleteBase, baseId, baseName, onDataUpdate, userRole, userCargo }) => {
   const [data, setData] = useState(baseData || []);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -298,7 +298,8 @@ const BaseDataTab = ({ baseData, onBack, onDeleteBase, baseId, baseName, onDataU
 
   // Verifica si el rol del usuario actual está en la lista de roles permitidos
   //const canEdit = adminRoles.includes(userRole);
-  const canEdit = adminRoles.includes(userRole.toUpperCase());
+  //const canEdit = adminRoles.includes(userRole.toUpperCase());
+  const canEdit = userCargo?.toUpperCase() === 'ADMIN';
 
   if (loading) {
     return (
