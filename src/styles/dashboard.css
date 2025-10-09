@@ -925,13 +925,6 @@ input:checked + .slider:before {
   transition: filter 0.2s ease;
 }
 
-/* Evita que el estado hover se quede pegado tras un clic */
-.base-data-table tr:active td,
-.base-data-table tr:focus td {
-  filter: none !important;
-  background-color: inherit !important;
-}
-
 /* Ajustar anchos de columnas para la tabla de base */
 .base-data-table th:nth-child(1),
 .base-data-table td:nth-child(1) { /* ID */
