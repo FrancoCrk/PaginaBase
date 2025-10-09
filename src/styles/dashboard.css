@@ -913,16 +913,9 @@ input:checked + .slider:before {
   /*background: white;*/
 }
 
-/* Hover SOLO para filas sin tipificación (blancas) */
-.base-data-table tbody tr:not([class*="row-"]):hover td {
-  background-color: rgba(255, 199, 190, 0.592);
-  transition: background 0.2s ease;
-}
-
-/* Hover para filas con tipificación (con colores) - solo aumenta brillo */
-.base-data-table tbody tr[class*="row-"]:hover td {
-  filter: brightness(1.15);
-  transition: filter 0.2s ease;
+.base-data-table tr:hover td {
+  filter: brightness(1.08);
+  transition: filter 0.25s ease, background-color 0.25s ease;
 }
 
 /* Ajustar anchos de columnas para la tabla de base */
