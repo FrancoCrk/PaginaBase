@@ -932,14 +932,6 @@ input:checked + .slider:before {
   background-color: inherit !important;
 }
 
-.base-data-table {
-  pointer-events: none;
-}
-
-.base-data-table * {
-  pointer-events: auto;
-}
-
 /* Ajustar anchos de columnas para la tabla de base */
 .base-data-table th:nth-child(1),
 .base-data-table td:nth-child(1) { /* ID */
