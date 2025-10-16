@@ -558,7 +558,9 @@ export const createBaseWithData = async (baseData, userId, userType) => {
 
     if (baseError) throw baseError;
 
-    // Si hay datos, insertarlos
+    let formattedData = [];
+
+    // Si hay datos, insertarlos y obtener los IDs generados
     if (baseData.datos && baseData.datos.length > 0) {
       const baseDataRecords = baseData.datos.map(item => ({
         base_id: base.id,
@@ -569,14 +571,26 @@ export const createBaseWithData = async (baseData, userId, userType) => {
         tipificacion: item.tipificacion || ''
       }));
 
-      const { error: dataError } = await supabase
+      // CAMBIO CLAVE: Agregar .select() para obtener los datos insertados con IDs
+      const { data: insertedData, error: dataError } = await supabase
         .from('base_data')
-        .insert(baseDataRecords);
+        .insert(baseDataRecords)
+        .select();
 
       if (dataError) throw dataError;
+
+      // Formatear los datos insertados con sus IDs reales de Supabase
+      formattedData = insertedData.map(item => ({
+        id: item.id, // ID real de Supabase
+        dni: item.dni || '',
+        nombreCompleto: item.nombre_completo || '',
+        numero1: item.numero1 || '',
+        numero2: item.numero2 || '',
+        tipificacion: item.tipificacion || ''
+      }));
     }
 
-    // Retornar la base con formato de la aplicación
+    // Retornar la base con los datos que incluyen IDs reales
     const formattedBase = {
       id: base.id,
       nombre: base.nombre,
@@ -584,7 +598,7 @@ export const createBaseWithData = async (baseData, userId, userType) => {
       advisorId: base.user_id, // Para compatibilidad
       userId: base.user_id,
       userType: base.user_type,
-      datos: baseData.datos || []
+      datos: formattedData // Usar datos formateados con IDs reales
     };
 
     return { success: true, data: formattedBase };
