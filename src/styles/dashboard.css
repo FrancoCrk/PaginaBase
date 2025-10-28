@@ -1037,7 +1037,7 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   /*position:absolute;*/
-  gap: 8px;
+  gap: 80px;
   transition: background-color 0.3s ease;
   margin-right: 80px; /* Coloca el botón a 20px del borde derecho del contenedor */
 }
