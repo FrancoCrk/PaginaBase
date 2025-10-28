@@ -1020,8 +1020,6 @@ input:checked + .slider:before {
   padding: 10px 15px; /* Añade padding horizontal */
   transition: background-color 0.3s ease;
   /*position: absolute;*/
-  z-index: 100;
-  margin-left: auto; /* Empuja a la derecha */
   margin-right: 0; /* Aseguramos alineación derecha */
 }
 
@@ -1040,7 +1038,6 @@ input:checked + .slider:before {
   /*position:absolute;*/
   gap: 8px;
   transition: background-color 0.3s ease;
-  margin-left: auto; /* Empuja a la derecha */
   margin-right: 0; /* Aseguramos alineación derecha */
 }
 
