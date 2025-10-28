@@ -1021,7 +1021,8 @@ input:checked + .slider:before {
   transition: background-color 0.3s ease;
   /*position: absolute;*/
   z-index: 100;
-  right: 80px; /* Coloca el botón a 20px del borde derecho del contenedor */
+  margin-left: auto; /* Empuja a la derecha */
+  margin-right: 20; /* Aseguramos alineación derecha */
 }
 
 .export-btn:hover {
@@ -1040,7 +1041,7 @@ input:checked + .slider:before {
   gap: 8px;
   transition: background-color 0.3s ease;
   margin-left: auto; /* Empuja a la derecha */
-  margin-right: -20; /* Aseguramos alineación derecha */
+  margin-right: 10; /* Aseguramos alineación derecha */
 }
 
 .delete-base-btn:hover {
