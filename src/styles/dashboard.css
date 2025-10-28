@@ -1037,7 +1037,7 @@ input:checked + .slider:before {
   /*position:absolute;*/
   gap: 8px;
   transition: background-color 0.3s ease;
-  margin-right: 0; /* Aseguramos alineación derecha */
+  margin-right: 4rem; /* Aseguramos alineación derecha */
 }
 
 .delete-base-btn:hover {
