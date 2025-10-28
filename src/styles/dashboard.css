@@ -1019,6 +1019,7 @@ input:checked + .slider:before {
   padding: 10px 15px; /* Añade padding horizontal */
   transition: background-color 0.3s ease;
   /*position: absolute;*/
+  margin-left: auto; /* Empuja a la derecha */
   margin-right: 0; /* Aseguramos alineación derecha */
 }
 
@@ -1037,7 +1038,8 @@ input:checked + .slider:before {
   /*position:absolute;*/
   gap: 8px;
   transition: background-color 0.3s ease;
-  margin-right: 4rem; /* Aseguramos alineación derecha */
+  margin-left: auto; /* Empuja a la derecha */
+  margin-right: 0; /* Aseguramos alineación derecha */
 }
 
 .delete-base-btn:hover {
