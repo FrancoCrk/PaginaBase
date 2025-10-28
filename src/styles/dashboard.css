@@ -1013,14 +1013,13 @@ input:checked + .slider:before {
   display: flex; /* Añade esto */
   cursor: pointer;
   display: flex;
-  align-items: center;
   margin-right: auto;
   gap: 8px;
   font-size: 1rem;
   padding: 10px 15px; /* Añade padding horizontal */
   transition: background-color 0.3s ease;
   /*position: absolute;*/
-  margin-right: 200px; /* Aseguramos alineación derecha */
+  margin-right: 0; /* Aseguramos alineación derecha */
 }
 
 .export-btn:hover {
@@ -1034,11 +1033,10 @@ input:checked + .slider:before {
   cursor: pointer;
   font-size: 10px;
   display: flex;
-  align-items: center;
   /*position:absolute;*/
   gap: 8px;
   transition: background-color 0.3s ease;
-  margin-right: -280px; /* Aseguramos alineación derecha */
+  margin-right: -20; /* Aseguramos alineación derecha */
 }
 
 .delete-base-btn:hover {
