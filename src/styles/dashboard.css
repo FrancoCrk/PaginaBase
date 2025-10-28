@@ -1019,7 +1019,7 @@ input:checked + .slider:before {
   font-size: 1rem;
   padding: 10px 15px; /* Añade padding horizontal */
   transition: background-color 0.3s ease;
-  position: absolute;
+  /*position: absolute;*/
   z-index: 100;
   right: 80px; /* Coloca el botón a 20px del borde derecho del contenedor */
 }
@@ -1040,7 +1040,7 @@ input:checked + .slider:before {
   gap: 8px;
   transition: background-color 0.3s ease;
   margin-left: auto; /* Empuja a la derecha */
-  margin-right: 0; /* Aseguramos alineación derecha */
+  margin-right: -20; /* Aseguramos alineación derecha */
 }
 
 .delete-base-btn:hover {
