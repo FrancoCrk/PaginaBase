@@ -1019,7 +1019,7 @@ input:checked + .slider:before {
   padding: 10px 15px; /* Añade padding horizontal */
   transition: background-color 0.3s ease;
   /*position: absolute;*/
-  margin-left: 0; /* Empuja a la derecha */
+  margin-left: 1rem; /* Empuja a la derecha */
   margin-right: 0; /* Aseguramos alineación derecha */
 }
 
