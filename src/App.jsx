@@ -56,6 +56,9 @@ function App() {
       ) {
         e.preventDefault();
       }
+      
+      // NO bloquear Ctrl+C, Ctrl+V, Ctrl+X (copiar, pegar, cortar)
+      // Estas combinaciones quedan permitidas
     };
     
     // Bloquear zoom con rueda del mouse
@@ -75,9 +78,13 @@ function App() {
       e.preventDefault();
     };
     
-    // Bloquear selección de texto
+    // Bloquear selección de texto (pero permitir en inputs/textareas)
     const handleSelectStart = (e) => {
-      e.preventDefault();
+      // Permitir selección en elementos de formulario
+      const allowedTags = ['INPUT', 'TEXTAREA', 'SELECT'];
+      if (!allowedTags.includes(e.target.tagName)) {
+        e.preventDefault();
+      }
     };
     
     // --- Registrar todos los listeners ---
