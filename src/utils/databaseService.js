@@ -187,13 +187,50 @@ export const getAsesores = async () => {
 
 export const createAsesor = async (asesorData) => {
   try {
+    // Obtener todos los IDs actuales
+    const { data: asesores, error: fetchError } = await supabase
+      .from('asesores')
+      .select('id');
+
+    if (fetchError) throw fetchError;
+
+    // Extraer los números de los IDs existentes
+    const usedNumbers = asesores
+      .map(a => parseInt(a.id.replace('asesor-', '')))
+      .filter(n => !isNaN(n))
+      .sort((a, b) => a - b);
+
+    // Encontrar el número más bajo disponible
+    let nextNumber = 1;
+    for (let i = 0; i < usedNumbers.length; i++) {
+      if (usedNumbers[i] !== i + 1) {
+        nextNumber = i + 1;
+        break;
+      }
+      nextNumber = usedNumbers.length + 1;
+    }
+
+    const newId = `asesor-${nextNumber}`;
+
+    // Verificar si el DNI ya existe
+    const { data: existingAsesor } = await supabase
+      .from('asesores')
+      .select('dni')
+      .eq('dni', asesorData.dni)
+      .maybeSingle();
+
+    if (existingAsesor) {
+      return { success: false, error: 'El DNI ya está registrado en otro asesor.' };
+    }
+
+    // Insertar el nuevo asesor
     const { data, error } = await supabase
       .from('asesores')
       .insert([{
-        id: asesorData.id,
+        id: newId,
         dni: asesorData.dni,
         nombre: asesorData.nombre.toUpperCase(),
-        password: asesorData.contraseña,
+        password: asesorData.password || asesorData.contraseña,
         turno: asesorData.turno.toUpperCase(),
         is_active: true,
         show_password: false
@@ -202,8 +239,11 @@ export const createAsesor = async (asesorData) => {
       .single();
 
     if (error) throw error;
+
     return { success: true, data };
+
   } catch (error) {
+    console.error('Error al crear asesor:', error.message);
     return { success: false, error: error.message };
   }
 };
