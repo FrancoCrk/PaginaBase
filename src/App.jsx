@@ -8,10 +8,10 @@ function App() {
   useEffect(() => {
     // Obtener el rol actual del usuario (puedes cambiar esta línea según tu app)
     const userRole = localStorage.getItem("userRole"); 
-    // Ejemplo de valores esperados: "ADMIN", "ASESOR_MOVIL", "ASESOR_TARDE", "ASESOR_MAÑANA", etc.
+    
 
     // SOLO aplicar bloqueos si NO es ADMIN ni ASESOR_MOVIL
-    if (userRole !== "ADMIN" && userRole !== "ASESOR_MOVIL") {
+    if (userRole !== "ADMIN" && userRole !== "MOVIL") {
 
     // Bloquear zoom y capturas de pantalla de navegador
     const handleKeyDown = (e) => {
