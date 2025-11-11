@@ -9,31 +9,22 @@ function App() {
     const userData = JSON.parse(localStorage.getItem("userData"));
     
     // Si no hay datos, no aplicar restricciones
-    if (!userData) {
-      console.log("⚠️ No hay userData en localStorage");
-      return;
-    }
+    if (!userData) return;
     
     // Extraemos cargo y turno (normalizados a mayúsculas)
     const cargo = userData?.cargo?.toUpperCase() || "";
     const turno = userData?.turno?.toUpperCase() || "";
     
-    console.log("👤 Usuario detectado:", { cargo, turno });
-    
     // USUARIOS PRIVILEGIADOS: ADMIN o turno MOVIL
-    // Estos usuarios NO tendrán NINGUNA restricción
+    // Estos usuarios NO tendrán ninguna restricción
     const isPrivileged = cargo === "ADMIN" || turno === "MOVIL";
     
     if (isPrivileged) {
-      console.log("✅ Usuario privilegiado detectado. SIN RESTRICCIONES.");
-      console.log("✅ Copiar/Pegar/Cortar: HABILITADO");
-      console.log("✅ Selección de texto: HABILITADO");
-      console.log("✅ Clic derecho: HABILITADO");
-      console.log("✅ Todos los atajos: HABILITADOS");
-      return; // Salir sin aplicar ningún bloqueo
+      console.log("Usuario privilegiado detectado. Sin restricciones.");
+      return; // Salir sin aplicar bloqueos
     }
     
-    console.log("🔒 Aplicando restricciones para usuario no privilegiado");
+    console.log("Aplicando restricciones para usuario no privilegiado");
     
     // --- BLOQUEOS SOLO PARA USUARIOS NO PRIVILEGIADOS ---
     
@@ -41,7 +32,6 @@ function App() {
       // Bloquear zoom con teclado (Ctrl/Cmd + +/-/0)
       if ((e.ctrlKey || e.metaKey) && (["+", "-", "0", "="].includes(e.key))) {
         e.preventDefault();
-        return;
       }
       
       // Bloquear PrintScreen y variantes
@@ -51,13 +41,11 @@ function App() {
         (e.altKey && e.key === "PrintScreen")
       ) {
         e.preventDefault();
-        return;
       }
       
       // Bloquear F11 (pantalla completa)
       if (e.key === "F11") {
         e.preventDefault();
-        return;
       }
       
       // Bloquear herramientas de desarrollador
@@ -67,15 +55,12 @@ function App() {
         (e.ctrlKey && e.key.toUpperCase() === "U")
       ) {
         e.preventDefault();
-        return;
       }
     };
     
     // Bloquear zoom con rueda del mouse
     const handleWheel = (e) => {
-      if (e.ctrlKey) {
-        e.preventDefault();
-      }
+      if (e.ctrlKey) e.preventDefault();
     };
     
     // Bloquear zoom con gestos táctiles (móviles/tablets)
@@ -90,13 +75,9 @@ function App() {
       e.preventDefault();
     };
     
-    // Bloquear selección de texto (pero permitir en campos de formulario)
+    // Bloquear selección de texto
     const handleSelectStart = (e) => {
-      // Permitir selección en elementos de formulario
-      const allowedTags = ['INPUT', 'TEXTAREA', 'SELECT'];
-      if (!allowedTags.includes(e.target.tagName)) {
-        e.preventDefault();
-      }
+      e.preventDefault();
     };
     
     // --- Registrar todos los listeners ---
@@ -106,8 +87,6 @@ function App() {
     document.addEventListener("contextmenu", handleContextMenu);
     document.addEventListener("selectstart", handleSelectStart);
     
-    console.log("🔒 Restricciones aplicadas exitosamente");
-    
     // --- Cleanup: remover listeners al desmontar ---
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
@@ -115,7 +94,6 @@ function App() {
       document.removeEventListener("touchmove", handleTouchMove);
       document.removeEventListener("contextmenu", handleContextMenu);
       document.removeEventListener("selectstart", handleSelectStart);
-      console.log("🧹 Listeners removidos");
     };
   }, []); // Array vacío: solo se ejecuta una vez al montar
 
