@@ -1145,13 +1145,13 @@ input:checked + .slider:before {
   width: 20%;
 }
 
-/* Nuevo estilo para deshabilitar selección de texto */
+/* Nuevo estilo para deshabilitar selección de texto 
 .disable-select-text {
   -webkit-user-select: none; /* Chrome, Safari, Opera */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Estándar */
-}
+}*/
 
 /* En tu archivo de estilos, ej. src/styles/dashboard.css
 .blackout-screen {
