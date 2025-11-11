@@ -20,10 +20,7 @@ const ModalAdvisorAdd = ({ isOpen, onClose, onSave }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const uniqueId = `asesor-${Date.now()}`; // genera un id único por timestamp
-    onSave({ ...formData, id: uniqueId });
-
+    onSave(formData);
     onClose();
   };
 
