@@ -55,6 +55,13 @@ const Dashboard = () => {
     setBaseSubTab("main");
   };
 
+  // NUEVA FUNCIÓN: Determinar si el usuario es privilegiado
+  const isPrivilegedUser = () => {
+    const cargo = userData?.cargo?.toUpperCase() || "";
+    const turno = userData?.turno?.toUpperCase() || "";
+    return cargo === "ADMIN" || turno === "MOVIL";
+  };
+
   // Función para cargar asesores desde Supabase
   const loadAdvisors = async () => {
     try {
@@ -576,7 +583,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-container disable-select-text">
+    <div className={`dashboard-container ${!isPrivilegedUser() ? 'disable-select-text' : 'enable-select-text'}`}>
       <CustomSidebar setActiveTab={handleSetActiveTab} />
       <div className="dashboard-content">{renderContent()}</div>
     </div>
