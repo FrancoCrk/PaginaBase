@@ -299,7 +299,7 @@ const BaseDataTab = ({ baseData, onBack, onDeleteBase, baseId, baseName, onDataU
   // Verifica si el rol del usuario actual está en la lista de roles permitidos
   //const canEdit = adminRoles.includes(userRole);
   //const canEdit = adminRoles.includes(userRole.toUpperCase());
-  const canEdit = userCargo?.toUpperCase() == 'ADMIN';
+  const canEdit = ['ADMIN', 'BACK OFFICE'].includes(userCargo?.toUpperCase());
 
   if (loading) {
     return (
