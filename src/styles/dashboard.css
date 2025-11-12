@@ -1145,13 +1145,52 @@ input:checked + .slider:before {
   width: 20%;
 }
 
-/* Nuevo estilo para deshabilitar selección de texto 
+/* SOLUCIÓN: User-select condicional basado en clases de usuario */
+
+/* Por defecto, PERMITIR selección en campos de formulario */
+input,
+textarea,
+select {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Clase para usuarios NO privilegiados (aplicar solo cuando NO sea ADMIN ni MOVIL) */
 .disable-select-text {
-  -webkit-user-select: none; /* Chrome, Safari, Opera */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Estándar */
-}*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* IMPORTANTE: Los campos de formulario dentro de .disable-select-text 
+   deben poder ser seleccionados */
+.disable-select-text input,
+.disable-select-text textarea,
+.disable-select-text select {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Nueva clase para usuarios privilegiados (ADMIN y MOVIL) */
+.enable-select-text {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Asegurar que TODO dentro de .enable-select-text sea seleccionable */
+.enable-select-text * {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
 
 /* En tu archivo de estilos, ej. src/styles/dashboard.css
 .blackout-screen {
