@@ -19,16 +19,21 @@ import DeleteMiBaseData from "../ModalsBase/DeleteMiBaseData";
 
 // Lista de tipificaciones
 const TIPIFICACIONES = [
-  "NO DESEA",
-  "ATENDIDA", 
-  "VENTA",
-  "NO CONTESTA",
   "AGENDADO",
+  "ATENDIDA",
   "DE VIAJE",
-  "MUDANZA",
-  "POSIBLE FRAUDE",
+  "FACILIDADES TECNICAS",
   "FACTIBILIDAD",
-  "FACILIDADES TECNICAS"
+  "MUDANZA",
+  "NO CONTESTA",
+  "NO DESEA",
+  "NV - ERROR",
+  "NV - NO CALIFICA",
+  "NV - OTRO DAC",
+  "NV - SIN COBERTURA",
+  "NV - YA CLIENTE",
+  "POSIBLE FRAUDE",
+  "VENTA",
 ];
 
 const BaseDataTab = ({ baseData, onBack, onDeleteBase, baseId, baseName, onDataUpdate, userRole, userCargo }) => {
@@ -157,16 +162,21 @@ const BaseDataTab = ({ baseData, onBack, onDeleteBase, baseId, baseName, onDataU
   const handleExportToExcel = async () => {
     try {
       const colorMap = {
-        "NO DESEA": "F44336",        // Rojo fuerte
-        "VENTA": "4CAF50",           // Verde fuerte
-        "ATENDIDA": "8BC34A",        // Verde lima
-        "NO CONTESTA": "9C27B0",     // Púrpura fuerte
-        "AGENDADO": "FFEB3B",        // Amarillo fuerte
-        "DE VIAJE": "FF9800",        // Naranja fuerte
-        "MUDANZA": "FF9800",         // Naranja fuerte
-        "POSIBLE FRAUDE": "F44336",  // Rojo fuerte
-        "FACTIBILIDAD": "F44336",    // Rojo fuerte
-        "FACILIDADES TECNICAS": "F44336" // Rojo fuerte
+        "AGENDADO": "FFEB3B",           // Amarillo
+        "ATENDIDA": "8BC34A",           // Verde lima
+        "DE VIAJE": "FF9800",           // Naranja
+        "FACILIDADES TECNICAS": "F44336", // Rojo
+        "FACTIBILIDAD": "F44336",       // Rojo
+        "MUDANZA": "FF9800",            // Naranja
+        "NO CONTESTA": "9C27B0",        // Púrpura
+        "NO DESEA": "F44336",           // Rojo
+        "NV - ERROR": "F44336",         // Rojo
+        "NV - NO CALIFICA": "F44336",   // Rojo
+        "NV - OTRO DAC": "F44336",      // Rojo
+        "NV - SIN COBERTURA": "F44336", // Rojo
+        "NV - YA CLIENTE": "F44336",    // Rojo
+        "POSIBLE FRAUDE": "F44336",     // Rojo
+        "VENTA": "4CAF50",              // Verde fuerte
       };
 
       // Crear un nuevo libro de trabajo
@@ -286,6 +296,11 @@ const BaseDataTab = ({ baseData, onBack, onDeleteBase, baseId, baseName, onDataU
       case 'FACTIBILIDAD':
       case 'NO DESEA':
       case 'FACILIDADES TECNICAS':
+      case 'NV - ERROR':
+      case 'NV - NO CALIFICA':
+      case 'NV - OTRO DAC':
+      case 'NV - SIN COBERTURA':
+      case 'NV - YA CLIENTE':
         return 'row-rojo';
       default:
         return '';
